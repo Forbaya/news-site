@@ -8,7 +8,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -21,7 +21,7 @@ public class Article extends AbstractPersistable<Long> {
     private String leadParagraph;
     @Size(max = 15000)
     private String bodyText;
-    private LocalDate releaseDate;
+    private LocalDateTime releaseDate;
     @ManyToMany
     private List<Account> accounts;
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 
 @Service
 public class ArticleService {
@@ -18,6 +19,7 @@ public class ArticleService {
         article.setTitle(title);
         article.setLeadParagraph(leadParagraph);
         article.setBodyText(bodyText);
+        article.setReleaseDate(LocalDateTime.now());
         articleRepository.save(article);
     }
 }

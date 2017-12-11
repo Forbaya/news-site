@@ -9,6 +9,8 @@
 <header th:fragment="header">
     <ul>
         <li><a th:href="@{/}">News site</a></li>
+        <li><a th:href="@{/login}">Log in</a></li>
+        <li><a th:href="@{/register}">Register</a></li>
         <li><a th:href="@{/article/new}" th:text="*{account != null}? 'New article' : ''"></a></li>
     </ul>
 </header>
