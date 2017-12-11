@@ -1,7 +1,7 @@
 package forbaya.news.repository;
 
-/**
- * Created by vilunen on 12/11/17.
- */
-public class CategoryRepository {
+import forbaya.news.domain.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 }

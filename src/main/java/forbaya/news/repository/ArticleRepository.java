@@ -1,7 +1,7 @@
 package forbaya.news.repository;
 
-/**
- * Created by vilunen on 12/11/17.
- */
-public interface ArticleRepository {
+import forbaya.news.domain.Article;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ArticleRepository extends JpaRepository<Article, Long> {
 }
