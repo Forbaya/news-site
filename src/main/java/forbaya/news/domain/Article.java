@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
@@ -24,4 +25,6 @@ public class Article extends AbstractPersistable<Long> {
     private LocalDateTime releaseDate;
     @ManyToMany
     private List<Account> accounts;
+    @Column(length = 1000000)
+    private Image image;
 }

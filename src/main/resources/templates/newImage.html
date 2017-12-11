@@ -2,25 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8"/>
-        <title>Login</title>
+        <title>Upload image</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
-    <body class="container">
-        <header th:replace="fragments/header :: header">
-            <p>header</p>
-        </header>
-
-        <h1>Login</h1>
-
-        <form th:action="@{/login}" method="POST">
-            <span>Username:</span><br/>
-            <input type="text" name="username"/><br/>
-            <span>Password:</span><br/>
-            <input type="password" name="password"/><br/>
-            <input type="submit" value="Login"/>
+    <body>
+        <h1>Upload image</h1>
+        <form method="POST" th:action="@{/image/new}" enctype="multipart/form-data">
+            <input type="file" name="file" id="file"/>
+            <input type="submit" value="Upload"/>
         </form>
     </body>
 </html>

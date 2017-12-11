@@ -1,6 +1,8 @@
 package forbaya.news.controller;
 
+import forbaya.news.domain.Image;
 import forbaya.news.repository.ArticleRepository;
+import forbaya.news.repository.ImageRepository;
 import forbaya.news.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,17 +18,19 @@ public class ArticleController {
     private ArticleService articleService;
     @Autowired
     private ArticleRepository articleRepository;
+    @Autowired
+    private ImageRepository imageRepository;
 
     @GetMapping("/article/new")
     public String getNewArticle(Model model) {
-        model.addAttribute("articles", articleRepository.findAll());
+        model.addAttribute("images", imageRepository.findAll());
         return "newArticle";
     }
 
     @PostMapping("/article/new")
-    public String postNewArticle(@RequestParam String title, @RequestParam String leadParagraph, @RequestParam String bodyText) {
-        articleService.add(title, leadParagraph, bodyText);
-        return "redirect:/article/new";
+    public String postNewArticle(@RequestParam String title, @RequestParam String leadParagraph, @RequestParam String bodyText, @RequestParam Image image) {
+        articleService.add(title, leadParagraph, bodyText, image);
+        return "redirect:/";
     }
 
     @GetMapping("/article/{id}")

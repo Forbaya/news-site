@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Header template</title>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Header template</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</head>
-<body>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body class="container">
 
-<header th:fragment="header">
-    <ul>
-        <li><a th:href="@{/}">News site</a></li>
-        <li><a th:href="@{/login}">Log in</a></li>
-        <li><a th:href="@{/register}">Register</a></li>
-        <li><a th:href="@{/article/new}" th:text="*{account != null}? 'New article' : ''"></a></li>
-    </ul>
-</header>
+    <header th:fragment="header">
+        <ul>
+            <li><a th:href="@{/}">News site</a></li>
+            <li><a th:href="@{/login}">Log in</a></li>
+            <li><a th:href="@{/register}">Register</a></li>
+            <li><a th:href="@{/article/new}" th:text="*{account != null}? 'New article' : ''"></a></li>
+        </ul>
+    </header>
 
-</body>
+    </body>
 </html>
