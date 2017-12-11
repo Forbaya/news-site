@@ -5,6 +5,8 @@
         <title>News site</title>
     </head>
     <body>
-        <p>News site</p>
+        <a th:href="@{/article/new}" th:text="*{account != null}? 'New article' : ''"></a>
+
+        <h1>News site</h1>
 </body>
 </html>

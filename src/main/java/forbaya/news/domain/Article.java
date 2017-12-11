@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -15,8 +16,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Article extends AbstractPersistable<Long> {
+    @Size(max = 1000)
     private String leadParagraph;
-    private String text;
+    @Size(max = 15000)
+    private String bodyText;
     private LocalDate releaseDate;
     @ManyToMany
     private List<Account> accounts;
