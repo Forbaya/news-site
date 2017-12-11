@@ -2,5 +2,5 @@
 .mvn*
 mvnw
 mvnw.cmd
-news-site.iml
+*.iml
 target*
