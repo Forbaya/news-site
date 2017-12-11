@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>New category</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header th:replace="fragments/header :: header">
+            <p>header</p>
+        </header>
+
+        <h1>Add new category</h1>
+        <form th:action="@{/category/new}" method="POST">
+            <span>Name</span><br/>
+            <input type="text" name="name"/><br/>
+            <input type="submit" value="Add"/>
+        </form>
+    </body>
+</html>
