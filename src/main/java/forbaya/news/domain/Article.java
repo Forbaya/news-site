@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,4 +18,6 @@ public class Article extends AbstractPersistable<Long> {
     private String leadParagraph;
     private String text;
     private LocalDate releaseDate;
+    @ManyToMany
+    private List<Account> accounts;
 }
