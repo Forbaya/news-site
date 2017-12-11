@@ -13,8 +13,9 @@ public class ArticleService {
     private ArticleRepository articleRepository;
 
     @Transactional
-    public void add(String leadParagraph, String bodyText) {
+    public void add(String title, String leadParagraph, String bodyText) {
         Article article = new Article();
+        article.setTitle(title);
         article.setLeadParagraph(leadParagraph);
         article.setBodyText(bodyText);
         articleRepository.save(article);

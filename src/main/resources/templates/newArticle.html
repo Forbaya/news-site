@@ -5,13 +5,19 @@
         <title>New article</title>
     </head>
     <body>
+        <header th:replace="fragments/header :: header">
+            <p>header</p>
+        </header>
+
         <h1>New article</h1>
 
         <li th:each="article : ${articles}">
-            <a th:text="${article.leadParagraph}"/>  <a th:text="${article.bodyText}" />
+            <a th:text="${article.id}"/>  <a th:text="${article.title}"/>  <a th:text="${article.leadParagraph}"/>  <a th:text="${article.bodyText}" />
         </li>
 
         <form th:action="@{/article/new}" method="POST">
+            <span>Title</span><br/>
+            <input type="text" name="title"/><br/>
             <span>Lead paragraph</span><br/>
             <input type="text" name="leadParagraph"/><br/>
             <span>Body text</span><br/>

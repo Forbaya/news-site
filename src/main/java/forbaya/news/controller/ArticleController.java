@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,8 +24,14 @@ public class ArticleController {
     }
 
     @PostMapping("/article/new")
-    public String postNewArticle(@RequestParam String leadParagraph, @RequestParam String bodyText) {
-        articleService.add(leadParagraph, bodyText);
+    public String postNewArticle(@RequestParam String title, @RequestParam String leadParagraph, @RequestParam String bodyText) {
+        articleService.add(title, leadParagraph, bodyText);
         return "redirect:/article/new";
+    }
+
+    @GetMapping("/article/{id}")
+    public String getArticle(Model model, @PathVariable Long id) {
+        model.addAttribute("article", articleRepository.getOne(id));
+        return "article";
     }
 }

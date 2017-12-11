@@ -5,6 +5,10 @@
         <title>Login</title>
     </head>
     <body>
+        <header th:replace="fragments/header :: header">
+            <p>header</p>
+        </header>
+
         <h1>Login</h1>
 
         <form th:action="@{/login}" method="POST">

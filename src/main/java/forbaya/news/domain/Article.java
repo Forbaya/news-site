@@ -16,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Article extends AbstractPersistable<Long> {
+    private String title;
     @Size(max = 1000)
     private String leadParagraph;
     @Size(max = 15000)
