@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * The category controller.
+ */
 @Controller
 public class CategoryController {
     @Autowired
@@ -22,17 +25,35 @@ public class CategoryController {
     @Autowired
     private HttpSession session;
 
+    /**
+     * Handles GET /category/new
+     *
+     * @return newCategory.html view
+     */
     @GetMapping("/category/new")
     public String getNewCategory() {
         return "newCategory";
     }
 
+    /**
+     * Handles POST /category/new
+     *
+     * @param name the name of the category
+     * @return redirects to /
+     */
     @PostMapping("/category/new")
     public String postNewCategory(@RequestParam String name) {
         categoryService.add(name);
         return "redirect:/";
     }
 
+    /**
+     * Handles GET /category/{name}
+     *
+     * @param model the model
+     * @param name the name of the category
+     * @return category.html view
+     */
     @GetMapping("/category/{name}")
     public String getCategory(Model model, @PathVariable String name) {
         Category category = categoryRepository.findByName(name);

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * The default controller.
+ */
 @Controller
 public class DefaultController {
     @Autowired
@@ -17,6 +20,12 @@ public class DefaultController {
     @Autowired
     private ArticleRepository articleRepository;
 
+    /**
+     * Handles default GET requests.
+     *
+     * @param model the model
+     * @return the index.html view
+     */
     @GetMapping("*")
     public String handleDefault(Model model) {
         model.addAttribute("newestArticles", articleRepository.findAll(new PageRequest(0, 5, Sort.Direction.DESC, "releaseDate")));

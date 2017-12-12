@@ -13,6 +13,9 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
+/**
+ * The article service for the article controller to use.
+ */
 @Service
 public class ArticleService {
     @Autowired
@@ -22,6 +25,15 @@ public class ArticleService {
     @Autowired
     private HttpSession session;
 
+    /**
+     * Adds a new article to the database.
+     *
+     * @param title         the title
+     * @param image         the image
+     * @param category      the category
+     * @param leadParagraph the lead paragraph
+     * @param bodyText      the body text
+     */
     @Transactional
     public void add(String title, Image image, Category category, String leadParagraph, String bodyText) {
         Article article = new Article();

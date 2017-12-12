@@ -9,6 +9,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
+/**
+ * Article entity.
+ */
 @Entity
 @Data
 @NoArgsConstructor

@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * The article controller.
+ */
 @Controller
 public class ArticleController {
     @Autowired
@@ -29,6 +32,12 @@ public class ArticleController {
     @Autowired
     private HttpSession session;
 
+    /**
+     * Handles GET /article/new
+     *
+     * @param model the model
+     * @return newArticle.html view
+     */
     @GetMapping("/article/new")
     public String getNewArticle(Model model) {
         model.addAttribute("images", imageRepository.findAll());
@@ -36,12 +45,29 @@ public class ArticleController {
         return "newArticle";
     }
 
+    /**
+     * Handles POST /article/new
+     *
+     * @param title         the title of an article
+     * @param image         the image of an article
+     * @param category      the category of an article
+     * @param leadParagraph the lead paragraph of an article
+     * @param bodyText      the body text of an article
+     * @return redirects to /
+     */
     @PostMapping("/article/new")
     public String postNewArticle(@RequestParam String title, @RequestParam Image image, @RequestParam Category category, @RequestParam String leadParagraph, @RequestParam String bodyText) {
         articleService.add(title, image, category, leadParagraph, bodyText);
         return "redirect:/";
     }
 
+    /**
+     * Handles GET /article/{id}
+     *
+     * @param model the model
+     * @param id the id
+     * @return article.html view
+     */
     @GetMapping("/article/{id}")
     public String getArticle(Model model, @PathVariable Long id) {
         model.addAttribute("article", articleRepository.getOne(id));

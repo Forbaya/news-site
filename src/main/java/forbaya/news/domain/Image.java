@@ -7,6 +7,9 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 
+/**
+ * Image entity. Images are in png-format.
+ */
 @Entity
 @Data
 @NoArgsConstructor

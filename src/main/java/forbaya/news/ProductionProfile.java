@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Profile;
 
 import javax.sql.DataSource;
 
-
+/**
+ * Production profile for Heroku.
+ */
 @Configuration
 @Profile("production")
 public class ProductionProfile {

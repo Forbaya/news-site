@@ -10,10 +10,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+/**
+ * Account entity.
+ */
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Account extends AbstractPersistable<Long> {
     private String username;
     private String password;

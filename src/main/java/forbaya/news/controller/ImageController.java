@@ -10,6 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The image controller.
+ */
 @Controller
 public class ImageController {
     @Autowired
@@ -17,11 +20,24 @@ public class ImageController {
     @Autowired
     private HttpSession session;
 
+    /**
+     * Handles GET /image/new
+     *
+     * @return the newImage.html view
+     */
     @GetMapping("/image/new")
     public String getNewImage() {
         return "newImage";
     }
 
+    /**
+     * Handles POST /image/new
+     * The image file need to be in png-format to be saved in the database.
+     *
+     * @param file the image file
+     * @return redirects to /
+     * @throws IOException an IOException
+     */
     @PostMapping(path = "/image/new", produces = "image/png")
     public String postNewImage(@RequestParam("file") MultipartFile file) throws IOException {
         if (file.getContentType().equals("image/png")) {
@@ -35,6 +51,12 @@ public class ImageController {
         return "redirect:/";
     }
 
+    /**
+     * Handles GET /image/{id}
+     *
+     * @param id the id of an image
+     * @return the image
+     */
     @GetMapping(path = "/image/{id}", produces = "image/png")
     @ResponseBody
     public byte[] getImage(@PathVariable Long id) {
