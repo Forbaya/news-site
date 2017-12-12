@@ -1,0 +1,2 @@
+### Asennusohje
+Ohje ohjelman suoritukseen lokaalisti. Lataa repositoryn .zip tai forkkaa repository ja cloonaa se haluamaasi hakemistoon. Avaa projecti IntelliJ IDEAlla tai (en ole testannut tätä NetBeanssilla). Runaa NewsSiteApplication.java.
