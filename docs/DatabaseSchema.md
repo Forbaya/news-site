@@ -84,8 +84,8 @@ Foreign-key constraints:
     "fkh62bbl9cduu2m9o3t16igci4n" FOREIGN KEY (category_id) REFERENCES category(id)
 
 
-### Table "public.image
-"
+### Table "public.image"
+
 |     Column     |          Type          | Modifiers |
 | -------------- | ---------------------- | --------- |
 | id             | bigint                 | not null  |
