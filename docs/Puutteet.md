@@ -7,4 +7,5 @@ Alotoin projektin tekemisen vasta 10.12. aamulla, joten tuli hieman kiire (muist
 4. Testit puuttuvat
 5. Kuvat toimivat lokaalisti mutta jostain syystä eivät lataudu Herokussa
 6. Etusivun uutiset näyttävät vain otsikon
-7. Varmaan jotain muitakin puutteita
+7. Näköjään myös Not nullit Entiteeteille...
+8. Varmaan jotain muitakin puutteita
