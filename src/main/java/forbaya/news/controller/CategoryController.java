@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("/category/new")
     public String getNewCategory() {

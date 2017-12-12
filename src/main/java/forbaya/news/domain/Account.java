@@ -7,6 +7,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,8 @@ import java.util.List;
 public class Account extends AbstractPersistable<Long> {
     private String username;
     private String password;
-    @ManyToMany(mappedBy = "accounts")
+    @OneToMany
     private List<Article> articles;
+    private String forename;
+    private String surname;
 }

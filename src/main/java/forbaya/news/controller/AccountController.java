@@ -21,6 +21,7 @@ public class AccountController {
     private AccountRepository accountRepository;
     @Autowired
     private HttpSession session;
+
     private boolean loginFailed;
 
     @PostConstruct
@@ -35,8 +36,8 @@ public class AccountController {
     }
 
     @PostMapping("/register")
-    public String postRegister(@RequestParam String username, @RequestParam String password) {
-        accountService.add(username, password);
+    public String postRegister(@RequestParam String username, @RequestParam String password, @RequestParam String forename, @RequestParam String surname) {
+        accountService.add(username, password, forename, surname);
         return "redirect:/login";
     }
 

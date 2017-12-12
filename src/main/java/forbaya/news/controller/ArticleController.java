@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class ArticleController {
     @Autowired
@@ -24,6 +26,8 @@ public class ArticleController {
     private ImageRepository imageRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("/article/new")
     public String getNewArticle(Model model) {

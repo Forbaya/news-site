@@ -16,10 +16,12 @@ public class AccountService {
     private HttpSession session;
 
     @Transactional
-    public void add(String username, String password) {
+    public void add(String username, String password, String forename, String surname) {
         Account account = new Account();
         account.setUsername(username);
         account.setPassword(password);
+        account.setForename(forename);
+        account.setSurname(surname);
         accountRepository.save(account);
     }
 

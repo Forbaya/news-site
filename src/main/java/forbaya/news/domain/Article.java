@@ -8,7 +8,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
@@ -21,8 +20,8 @@ public class Article extends AbstractPersistable<Long> {
     @Size(max = 15000)
     private String bodyText;
     private LocalDateTime releaseDate;
-    @ManyToMany
-    private List<Account> accounts;
+    @Column(length = 1000000)
+    private Account account;
     @Column(length = 1000000)
     private Image image;
     @Column(length = 1000000)

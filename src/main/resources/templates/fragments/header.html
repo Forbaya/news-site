@@ -11,11 +11,13 @@
     <body class="container">
 
     <header th:fragment="header">
-        <ul>
+        <ul class="list-unstyled">
             <li><a th:href="@{/}">News site</a></li>
-            <li><a th:href="@{/login}">Log in</a></li>
-            <li><a th:href="@{/register}">Register</a></li>
-            <li><a th:href="@{/article/new}" th:text="*{account != null}? 'New article' : ''"></a></li>
+            <li th:if="${session.isEmpty()}"><a th:href="@{/login}">Log in</a></li>
+            <li th:if="${session.isEmpty()}"><a th:href="@{/register}">Register</a></li>
+            <li th:if="${not session.isEmpty()}"><a th:href="@{/article/new}">New article</a></li>
+            <li th:if="${not session.isEmpty()}"><a th:href="@{/image/new}">New image</a></li>
+            <li th:if="${not session.isEmpty()}"><a th:href="@{/category/new}">New category</a></li>
             <p th:if="${not #lists.isEmpty(categories)}">Categories</p>
             <li th:each="category : ${categories}">
                 <a th:href="@{/category/{name}(name=${category.name})}" th:text="${category.name}"/>

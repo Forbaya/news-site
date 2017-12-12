@@ -18,5 +18,7 @@
         <img th:src="@{/image/{id}(id=${article.image.id})}" height="256" width="256"/>
         <p th:text="${article.leadParagraph}">Lead paragraph</p>
         <p th:text="${article.bodyText}">Body text</p>
+
+        <span>Written by </span><span th:text="${article.account.forename}">forename</span> <span th:text="${article.account.surname}">surname</span>
     </body>
 </html>

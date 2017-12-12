@@ -1,6 +1,5 @@
 package forbaya.news.controller;
 
-import forbaya.news.domain.Account;
 import forbaya.news.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -18,14 +17,8 @@ public class DefaultController {
     @Autowired
     private ArticleRepository articleRepository;
 
-
     @GetMapping("*")
     public String handleDefault(Model model) {
-        Account account = (Account) session.getAttribute("loggedAccount");
-        if (account != null) {
-            model.addAttribute("account", account);
-        }
-
         model.addAttribute("newestArticles", articleRepository.findAll(new PageRequest(0, 5, Sort.Direction.DESC, "releaseDate")));
         return "index";
     }
