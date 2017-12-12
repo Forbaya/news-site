@@ -31,7 +31,9 @@ public class CategoryController {
 
     @GetMapping("/category/{name}")
     public String getCategory(Model model, @PathVariable String name) {
-        model.addAttribute("category", categoryRepository.findByName(name));
+        Category category = categoryRepository.findByName(name);
+        model.addAttribute("category", category);
+        model.addAttribute("articles", category.getArticles());
         return "category";
     }
 }

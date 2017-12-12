@@ -24,6 +24,10 @@
             </select><br/>
             <span>Lead paragraph</span><br/>
             <input type="text" name="leadParagraph"/><br/>
+            <span>Category</span><br/>
+            <select name="category">
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}">category</option>
+            </select><br/>
             <span>Body text</span><br/>
             <input type="text" name="bodyText"/><br/>
             <input type="submit" value="Add article"/>

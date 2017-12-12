@@ -14,6 +14,7 @@
         </header>
 
         <h1 th:text="${article.title}">Title</h1>
+       <span>Category: </span> <p th:text="${article.category.name}">Category</p>
         <img th:src="@{/image/{id}(id=${article.image.id})}" height="256" width="256"/>
         <p th:text="${article.leadParagraph}">Lead paragraph</p>
         <p th:text="${article.bodyText}">Body text</p>

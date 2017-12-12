@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -27,4 +25,6 @@ public class Article extends AbstractPersistable<Long> {
     private List<Account> accounts;
     @Column(length = 1000000)
     private Image image;
+    @Column(length = 1000000)
+    private Category category;
 }
